@@ -43,7 +43,7 @@ def build_chain():
     ])
 
     llm = ChatGroq(
-        model="openai/gpt-oss-120b",
+        model="qwen/qwen3.8-27b",
         temperature=0,
         max_tokens=None,
         reasoning_format="parsed",
