@@ -2,7 +2,7 @@
 name = "rag-telecom-chatbot"
 version = "0.1.0"
 description = "RAG-based telecom customer care chatbot tutorial"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
     "langchain",
     "langchain-core",
