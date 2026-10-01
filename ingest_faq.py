@@ -35,13 +35,28 @@ def main():
     print("Initialising embedding model...")
     embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
 
+    print("Removing existing FAQ collection if it exists...")
+    temp_store = Chroma(
+        collection_name=COLLECTION,
+        embedding_function=embeddings,
+        persist_directory=CHROMA_DIR,
+    )
+
+    try:
+        temp_store.delete_collection()
+        print("  Old FAQ collection deleted.")
+    except Exception:
+        print("  No existing FAQ collection found.")
+
     print(f"Embedding and storing in Chroma collection '{COLLECTION}'...")
+
     vectorstore = Chroma.from_documents(
         documents=docs,
         embedding=embeddings,
         collection_name=COLLECTION,
         persist_directory=CHROMA_DIR,
     )
+
     print(f"  Done. {vectorstore._collection.count()} vectors stored.")
 
 
