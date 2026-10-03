@@ -45,7 +45,7 @@ def build_chain():
     llm = ChatGroq(
         model="qwen/qwen3.8-27b",
         temperature=0,
-        max_tokens=None,
+        max_tokens=500,
         reasoning_format="parsed",
         timeout=None,
         max_retries=2,

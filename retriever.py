@@ -14,9 +14,9 @@ EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 
 def build_retriever(
-    k_faq: int = 3,
-    k_tickets: int = 3,
-    k_guides: int = 3,
+    k_faq: int = 2,
+    k_tickets: int = 1,
+    k_guides: int = 2,
 ) -> RunnableLambda:
     embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
 
